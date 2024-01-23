@@ -1,61 +1,57 @@
 import { useState } from "react";
 import {
-  Pressable,
   StyleSheet,
-  Text,
-  TextInput,
   View,
   Image,
+  ImageBackground,
 } from "react-native";
-import Loading from "../componets/Loading";
+import { Loading, CustomTextInput, CustomButton } from "../componets";
 
-export default function LoginScreen( {navigation} ) {
+export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <ImageBackground style={styles.container} source={require("../../assets/images/background.jpeg")}>
       <Image
         source={require("../../assets/images/login-icon.png")}
         style={styles.login_icon}
       />
-      <Text>Email</Text>
-      <TextInput
-        style={styles.textInputStyle}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
+      <CustomTextInput
+        customText="Email"
+        customPlaceholder="Enter your email"
+        customKeyboardType="email-address"
+        customSecureTextEntry={false}
+        customOnChangeText={setEmail}
+        customValue={email}
       />
-      <Text>Password</Text>
-      <TextInput
-        style={styles.textInputStyle}
-        onChangeText={setPassword}
-        secureTextEntry
-        keyboardType="number-pad"
+      <CustomTextInput
+        customText="Password"
+        customPlaceholder="Enter your password"
+        customKeyboardType="number-pad"
+        customSecureTextEntry={true}
+        customOnChangeText={setPassword}
+        customValue={password}
       />
-      <Pressable
-        style={({ pressed }) => [
-          styles.button,
-          { backgroundColor: pressed ? "lightgray" : "blue" },
-        ]}
-        onPress={() => setLoading(true)}
-      >
-        <Text style={{ color: "white" }}>Save</Text>
-      </Pressable>
-
-      <Pressable
-        style={({ pressed }) => [
-          styles.button,
-          { backgroundColor: pressed ? "lightgray" : "gray" },
-        ]}
-        onPress={()=>{navigation.navigate("Signup")}}
-      >
-        <Text style={{ color: "white" }}>Sign Up</Text>
-      </Pressable>
-
+      <CustomButton
+        buttonTitle="Login"
+        customOnpress={() => setLoading(true)}
+        customWidth="80%"
+        buttonColor="blue"
+        pressedButtonColor="lightgray"
+      />
+      <CustomButton
+        buttonTitle="Sign Up"
+        customOnpress={() => {
+          navigation.navigate("Signup");
+        }}
+        customWidth="30%"
+        buttonColor="gray"
+        pressedButtonColor="lightgray"
+      />
       <Loading visible={loading} onClose={() => setLoading(false)} />
-    </View>
+    </ImageBackground>
   );
 }
 
@@ -70,23 +66,5 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     marginVertical: 20,
-  },
-
-  textInputStyle: {
-    height: 50,
-    width: "80%",
-    borderWidth: 1,
-    borderRadius: 10,
-    textAlign: "center",
-    marginVertical: 10,
-  },
-  button: {
-    height: 50,
-    width: "80%",
-    backgroundColor: "blue",
-    borderRadius: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    marginVertical:8
   },
 });
