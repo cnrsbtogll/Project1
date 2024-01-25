@@ -5,12 +5,12 @@ import {
   ImageBackground,
   View,
   Text,
-  Pressable
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 import { CustomTextInput, CustomButton } from "../componets";
 
-const SignupScreen = ({navigation}) => {
+const SignupScreen = ({ navigation }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,33 +21,36 @@ const SignupScreen = ({navigation}) => {
     >
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.sectionOne}>
-          <Image source={require("../../assets/images/signup-icon.png")} style={styles.signup}/>
+          <Image
+            source={require("../../assets/images/signup-icon.png")}
+            style={styles.signup}
+          />
           <Text style={{ fontSize: 30, fontWeight: "bold" }}>Welcome</Text>
         </View>
         <View style={styles.sectionTwo}>
-          <CustomTextInput 
-          customText={"Name"}
-          customPlaceholder={"Enter your name"}
-          customKeyboardType={"default"}
-          customSecureTextEntry={false}
-          customOnChangeText={setName}
-          customValue={name}
+          <CustomTextInput
+            customText={"Name"}
+            customPlaceholder={"Enter your name"}
+            customKeyboardType={"default"}
+            customSecureTextEntry={false}
+            customOnChangeText={setName}
+            customValue={name}
           />
-          <CustomTextInput 
-          customText={"Email"}
-          customPlaceholder={"Enter your email"}
-          customKeyboardType={"email-address"}
-          customSecureTextEntry={false}
-          customOnChangeText={setEmail}
-          customValue={email}
+          <CustomTextInput
+            customText={"Email"}
+            customPlaceholder={"Enter your email"}
+            customKeyboardType={"email-address"}
+            customSecureTextEntry={false}
+            customOnChangeText={setEmail}
+            customValue={email}
           />
-          <CustomTextInput 
-          customText={"Password"}
-          customPlaceholder={"Enter your password"}
-          customKeyboardType={"number-pad"}
-          customSecureTextEntry={true}
-          customOnChangeText={setPassword}
-          customValue={password}
+          <CustomTextInput
+            customText={"Password"}
+            customPlaceholder={"Enter your password"}
+            customKeyboardType={"number-pad"}
+            customSecureTextEntry={true}
+            customOnChangeText={setPassword}
+            customValue={password}
           />
         </View>
         <View style={styles.sectionThree}>
@@ -58,8 +61,8 @@ const SignupScreen = ({navigation}) => {
             buttonColor="blue"
             pressedButtonColor="lightgray"
           />
-          <Pressable onPress={()=>navigation.navigate("Login")}>
-          <Text style={styles.option}>Already have an account? Login!</Text>
+          <Pressable onPress={() => navigation.navigate("Login")}>
+            <Text style={styles.option}>Already have an account? Login!</Text>
           </Pressable>
         </View>
       </SafeAreaView>
@@ -78,7 +81,6 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: "space-evenly",
     alignItems: "center",
-
   },
   sectionTwo: {
     flex: 3,
@@ -88,15 +90,15 @@ const styles = StyleSheet.create({
   sectionThree: {
     flex: 2,
     alignItems: "center",
-    justifyContent:"space-evenly"
+    justifyContent: "space-evenly",
   },
 
   signup: {
     width: 100,
     height: 100,
   },
-  option:{
+  option: {
     fontSize: 14,
     fontWeight: "bold",
-  }
+  },
 });

@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  Image,
-  ImageBackground,
-} from "react-native";
+import { StyleSheet, Image, ImageBackground } from "react-native";
 import { Loading, CustomTextInput, CustomButton } from "../componets";
 
 export default function LoginScreen({ navigation }) {
@@ -12,7 +8,10 @@ export default function LoginScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
 
   return (
-    <ImageBackground style={styles.container} source={require("../../assets/images/background.jpeg")}>
+    <ImageBackground
+      style={styles.container}
+      source={require("../../assets/images/background.jpeg")}
+    >
       <Image
         source={require("../../assets/images/login-icon.png")}
         style={styles.login_icon}
