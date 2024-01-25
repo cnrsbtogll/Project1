@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   StyleSheet,
-  View,
   Image,
   ImageBackground,
 } from "react-native";
