@@ -42,10 +42,10 @@ const SignupScreen = ({navigation}) => {
           customValue={email}
           />
           <CustomTextInput 
-          customText="Password"
-          customPlaceholder="Enter your password"
-          customKeyboardType="number-pad"
-          customSecureTextEntry="true"
+          customText={"Password"}
+          customPlaceholder={"Enter your password"}
+          customKeyboardType={"number-pad"}
+          customSecureTextEntry={true}
           customOnChangeText={setPassword}
           customValue={password}
           />
