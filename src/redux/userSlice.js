@@ -21,7 +21,7 @@ const initalState = {
    password: null,
    isLoading: false,
    isAuth: false,
-   toke: null,
+   token: null,
    user: null,
    error: null,
    
