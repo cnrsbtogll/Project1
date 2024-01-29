@@ -2,7 +2,7 @@ import { useState } from "react";
 import { StyleSheet, Image, ImageBackground } from "react-native";
 import { Loading, CustomTextInput, CustomButton } from "../componets";
 import { useDispatch, useSelector } from "react-redux";
-import { setEmail, setPassword, setIsLoading, setLogin} from "../redux/userSlice";
+import { setEmail, setPassword, setIsLoading, login} from "../redux/userSlice";
 
 export default function LoginScreen({ navigation }) {
 
@@ -24,7 +24,7 @@ const dispatch = useDispatch();
         customPlaceholder="Enter your email"
         customKeyboardType="email-address"
         customSecureTextEntry={false}
-        customOnChangeText={(text)=>{dispatch(setEmail(text))}}
+        customOnChangeText={(text)=>{dispatch(setEmail(text.toLowerCase()))}}
         customValue={email}
       />
       <CustomTextInput
@@ -37,7 +37,7 @@ const dispatch = useDispatch();
       />
       <CustomButton
         buttonTitle="Login"
-        customOnpress={()=>{dispatch(setLogin())}}
+        customOnpress={()=>{dispatch(login({email, password}))}}
         customWidth="80%"
         buttonColor="blue"
         pressedButtonColor="lightgray"
