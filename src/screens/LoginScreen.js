@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { StyleSheet, Image, ImageBackground } from "react-native";
 import { Loading, CustomTextInput, CustomButton } from "../componets";
+import { useDispatch, useSelector } from "react-redux";
+import { setEmail, setPassword, setIsLoading, setLogin} from "../redux/userSlice";
 
 export default function LoginScreen({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+
+const { email, password, isLoading } = useSelector(state => state.user);
+
+const dispatch = useDispatch();
 
   return (
     <ImageBackground
@@ -21,7 +24,7 @@ export default function LoginScreen({ navigation }) {
         customPlaceholder="Enter your email"
         customKeyboardType="email-address"
         customSecureTextEntry={false}
-        customOnChangeText={setEmail}
+        customOnChangeText={(text)=>{dispatch(setEmail(text))}}
         customValue={email}
       />
       <CustomTextInput
@@ -29,12 +32,12 @@ export default function LoginScreen({ navigation }) {
         customPlaceholder="Enter your password"
         customKeyboardType="number-pad"
         customSecureTextEntry={true}
-        customOnChangeText={setPassword}
+        customOnChangeText={(text)=>{dispatch(setPassword(text))}}
         customValue={password}
       />
       <CustomButton
         buttonTitle="Login"
-        customOnpress={() => setLoading(true)}
+        customOnpress={()=>{dispatch(setLogin())}}
         customWidth="80%"
         buttonColor="blue"
         pressedButtonColor="lightgray"
@@ -48,7 +51,7 @@ export default function LoginScreen({ navigation }) {
         buttonColor="gray"
         pressedButtonColor="lightgray"
       />
-      <Loading visible={loading} onClose={() => setLoading(false)} />
+      <Loading visible={isLoading} onClose={() => dispatch(setIsLoading(false))} />
     </ImageBackground>
   );
 }
