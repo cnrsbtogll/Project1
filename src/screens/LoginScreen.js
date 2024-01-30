@@ -12,12 +12,12 @@ const dispatch = useDispatch();
 
   return (
     <ImageBackground
-      style={styles.container}
+      className="flex-1 bg-white items-center justify-center"
       source={require("../../assets/images/background.jpeg")}
     >
       <Image
         source={require("../../assets/images/login-icon.png")}
-        style={styles.login_icon}
+        className= "w-36 h-36 my-5"
       />
       <CustomTextInput
         customText="Email"
@@ -57,15 +57,6 @@ const dispatch = useDispatch();
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  login_icon: {
-    width: 150,
-    height: 150,
-    marginVertical: 20,
-  },
+  
+  
 });
