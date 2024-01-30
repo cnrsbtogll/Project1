@@ -7,10 +7,8 @@ import app from '../../firebaseConfig'
 
 
 export default function RootNavigator() {
-  const isAuth  = useSelector((state) => state.user.isAuth);
+  const isAuth = useSelector((state) => state.user.isAuth);
 
-  console.log("isAuth", isAuth);
-  
   return (
     <NavigationContainer>
       {isAuth ? <UserStack /> : <AuthStack />}
