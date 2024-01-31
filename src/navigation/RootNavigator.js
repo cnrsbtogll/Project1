@@ -11,7 +11,7 @@ export default function RootNavigator() {
 
   return (
     <NavigationContainer>
-      {isAuth ? <UserStack /> : <AuthStack />}
+      {true ? <UserStack /> : <AuthStack />}
     </NavigationContainer>
   );
 }
