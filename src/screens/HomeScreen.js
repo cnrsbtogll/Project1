@@ -1,21 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import Header from '../componets/Header'
 
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text>HomeScreen</Text>
-    </View>
+    <SafeAreaView className="flex-1 bg-slate-50">
+     <Header/>
+    </SafeAreaView>
   )
 }
 
 export default HomeScreen
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
